@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Signifier-Regular';
+  src: url('Fonts/TestSignifier-regular-webfont.woff2') format('woff2'),
+       url('Fonts/TestSignifier-regular-webfont.woff') format('woff'),
+       url('Fonts/TestSignifier-regular-webfont.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Signifier-Medium';
+  src: url('Fonts/TestSignifier-medium-webfont.woff2') format('woff2'),
+       url('Fonts/TestSignifier-medium-webfont.woff') format('woff'),
+       url('Fonts/TestSignifier-medium-webfont.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Gordita-Regular';
+  src: url('Fonts/Gordita-regular-webfont.woff2') format('woff2'),
+       url('Fonts/Gordita-regular-webfont.woff') format('woff'),
+       url('Fonts/Gordita-regular-webfont.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Gordita-Medium';
+  src: url('Fonts/Gordita-medium-webfont.woff2') format('woff2'),
+       url('Fonts/Gordita-medium-webfont.woff') format('woff'),
+       url('Fonts/Gordita-medium-webfont.ttf') format('truetype');
+}
+

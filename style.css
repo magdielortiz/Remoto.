@@ -1,0 +1,140 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body, html {
+  height: 100%;
+  font-family: 'Gordita-Regular', serif;
+  font-size: .90rem;
+  line-height: 20px;
+  overflow: hidden; /* Desktop: prevent body scroll */
+}
+
+/* Container Layout */
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 20%;
+  background-color: #F9F9F9;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 100vh;
+  position: relative;
+}
+
+.logo {
+  font-family: 'Signifier-Regular', serif;
+  font-size: 3.25rem;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 75px;
+}
+
+.bio h1, h2, h3 {
+  font-family: 'Gordita-Medium', serif;
+  font-size: .90rem;
+  font-weight: bold;
+}
+
+.bio p {
+  margin-bottom: 30px;
+}
+
+.contact p {
+  margin-bottom: 10px;
+}
+
+/* Portfolio Scrollable Section */
+.portfolio {
+  width: 80%;
+  background-color: #F9F9F9;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.image {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Time Section */
+.time-container {
+  margin-top: 25px;
+  border-top: 1px solid #000000;
+}
+
+.city {
+  padding-top: 10px;
+}
+
+/* Hide scrollbars in WebKit */
+.sidebar::-webkit-scrollbar,
+.portfolio::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide in Firefox */
+.sidebar,
+.portfolio {
+  scrollbar-width: none;
+}
+
+/* ------- Mobile / Tablet Responsive Styles ------- */
+@media (max-width: 1024px) {
+  html, body {
+    overflow: auto;        /* Enable scroll on mobile */
+    height: auto;          /* Remove fixed height */
+  }
+
+  .sidebar {
+    width: 33.333%;
+    height: auto;
+    padding: 20px;
+    overflow-y: visible;
+  }
+
+  .image {
+    height: 40vh;
+  }
+}
+
+/* ------- Mobile / Tablet Responsive Styles ------- */
+@media (max-width: 768px) {
+  html, body {
+    overflow: auto;        /* Enable scroll on mobile */
+    height: auto;          /* Remove fixed height */
+  }
+
+  .container {
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    overflow-y: visible;
+  }
+
+  .portfolio {
+    width: 100%;
+    height: auto;
+    overflow-y: visible;
+  }
+
+  .image {
+    height: 50vh;
+  }
+}

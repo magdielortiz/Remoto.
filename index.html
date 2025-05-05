@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Proyects by Remoto."/>
+  <title>We Are Remoto.</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="fonts.css">
+    <link rel="icon" href="Images/Favicon.png" type="image" sizes="16x16">
+</head>
+<body>
+  <div class="container">
+    <!-- Left Static Panel -->
+    <aside class="sidebar">
+      <div class="logo">Remoto.</div>
+      <div class="bio">
+        <h1>Who We Are</h1>
+        <p>Remoto is a graphic design studio specializing in visual identity design and consultancy. Our mission is to provide our clients with exceptional quality design solutions that are both strategic and visually compelling, helping them build strong, memorable brands.</p>
+        <h2>What We Do</h2>
+        <p>Art Direction<br>Visual Identity<br>Brand Strategy<br>Brand Architecture<br>Naming<br>Campaigns<br>Digital Design<br>Brand Experience</p>
+      </div>
+      <div class="contact">
+        <h3>Get In Touch</h3>
+        <p>info@weareremoto.com</p>
+      </div>
+      <div class="time-container">
+        <div class="clock">
+          <div class="city">Seattle (PST/PDT)</div>
+          <div class="time" id="seattle"></div>
+        </div>
+        <div class="clock">
+          <div class="city">Colombia (COT)</div>
+          <div class="time" id="colombia"></div>
+        </div>
+        <div class="clock">
+          <div class="city">Miami (EST/EDT)</div>
+          <div class="time" id="miami"></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right Scrollable Panel -->
+    <main class="portfolio">
+      <div class="image" style="background-image: url('Images/RFBusinessCardMockup.jpg');"></div>
+      <div class="image" style="background-image: url('Images/JandiHat.jpg');"></div>
+      <div class="image" style="background-image: url('Images/TaboasWeb.jpg');"></div>
+    </main>
+  </div>
+  <script>
+        function updateTime() {
+          const options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true, // Enable 12-hour format
+          };
+    
+          document.getElementById("seattle").textContent =
+            new Date().toLocaleTimeString("en-US", { ...options, timeZone: "America/Los_Angeles" });
+    
+          document.getElementById("colombia").textContent =
+            new Date().toLocaleTimeString("en-US", { ...options, timeZone: "America/Bogota" });
+    
+          document.getElementById("miami").textContent =
+            new Date().toLocaleTimeString("en-US", { ...options, timeZone: "America/New_York" });
+        }
+    
+        setInterval(updateTime, 1000);
+        updateTime(); // Initial display
+      </script>      
+</body>
+</html>
