@@ -1,144 +1,155 @@
-/* Reset & Base Styles */
-* {
-  margin: 0;
-  padding: 0;
+/* ========== Base Reset & Typography ========== */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
+
 body, html {
-  height: 100%;
+  margin: 0;
+  padding: 0;
   font-family: 'Gordita-Regular', serif;
-  font-size: .90rem;
+  font-size: 0.90rem;
   line-height: 20px;
-  overflow: hidden; /* Desktop: prevent body scroll */
+  background-color: #EEEEEE;
+  color: #000000;
+  scroll-behavior: smooth;
 }
 
-/* Container Layout */
-.container {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
+/* ========== Navigation ========== */
+header {
+  background: #EEEEEE;
+  padding: 25px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-/* Sidebar */
-.sidebar {
-  width: 20%;
-  background-color: #F9F9F9;
-  padding: 40px 30px;
+.nav {
   display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  height: 100vh;
-  position: relative;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
   font-family: 'Signifier-Regular', serif;
-  font-size: 3rem;
-  font-weight: bold;
-  margin-top: 25px;
-  margin-bottom: 75px;
+  font-size: 1.75rem;
+  font-weight: 400;
 }
 
-.bio h1, h2, h3 {
-  font-family: 'Gordita-Medium', serif;
-  font-size: .90rem;
-  font-weight: bold;
+.menu {
+  display: flex;
+  gap: 2rem;
 }
 
-.bio p {
-  margin-bottom: 30px;
+.menu a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
 }
 
-.contact p {
-  margin-bottom: 10px;
+.menu a:hover {
+  opacity: 0.6;
 }
 
-/* Portfolio Scrollable Section */
-.portfolio {
-  width: 80%;
-  background-color: #F9F9F9;
-  overflow-y: auto;
-  height: 100vh;
+/* ========== Main Content ========== */
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0 25px; /* 25px margin on both sides */
+  scroll-snap-type: y mandatory;
+  overscroll-behavior-y: none;
 }
 
-.image {
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
+.project {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 90vh; /* fills most of the viewport height */
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
-/* Time Section */
-.time-container {
-  margin-top: 25px;
-  border-top: 1px solid #000000;
+/* --- Image Styling --- */
+.project img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* keeps the image proportionally scaled */
+  display: block;
+  transition: transform 0.5s ease;
+  background-color: #ccc;
 }
 
-.city {
-  padding-top: 10px;
+/* Hover zoom effect */
+.project:hover img {
+  transform: scale(1.03);
 }
 
-/* Hide scrollbars in WebKit */
-.sidebar::-webkit-scrollbar,
-.portfolio::-webkit-scrollbar {
-  display: none;
+/* ========== Caption Overlay ========== */
+.caption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 1.5rem 2rem;
+  color: #fff;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
+  font-size: 0.5rem;
+  letter-spacing: 0.5px;
+  pointer-events: none; /* allows clicks through the overlay */
 }
 
-/* Hide in Firefox */
-.sidebar,
-.portfolio {
-  scrollbar-width: none;
+.caption span:first-child {
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 
-/* ------- Mobile / Tablet Responsive Styles ------- */
-@media (max-width: 1024px) {
-  html, body {
-    overflow: auto;        /* Enable scroll on mobile */
-    height: auto;          /* Remove fixed height */
-  }
-
-  .sidebar {
-    width: 33.333%;
-    height: auto;
-    padding: 20px;
-    overflow-y: visible;
-  }
-
-  .image {
-    height: 40vh;
-  }
+.caption span:last-child {
+  font-weight: 400;
+  font-size: 0.9rem;
+  opacity: 0.9;
 }
 
-/* ------- Mobile / Tablet Responsive Styles ------- */
-@media (max-width: 768px) {
-  html, body {
-    overflow: auto;        /* Enable scroll on mobile */
-    height: auto;          /* Remove fixed height */
-  }
-
-  .container {
-    flex-direction: column;
-    height: auto;
-    overflow: visible;
-  }
-
-  .sidebar {
-    width: 100%;
-    height: auto;
-    padding: 20px;
-    overflow-y: visible;
+/* ========== Mobile (≤430px) ========== */
+@media (max-width: 430px) {
+  header {
+    padding: 15px;
   }
 
   .logo {
-    margin-top: 45px;
+    font-size: 1.3rem;
   }
 
-  .portfolio {
-    width: 100%;
-    height: auto;
-    overflow-y: visible;
+  .menu {
+    gap: 1rem;
   }
 
-  .image {
-    height: 30vh;
+  .menu a {
+    font-size: 0.9rem;
+  }
+
+  main {
+    margin: 0 15px;
+  }
+
+  .project {
+    height: 25vh; /* smaller height to fit mobile screens */
+  }
+
+  .caption {
+    padding: 1rem 1.25rem;
+    font-size: 0.85rem;
+  }
+
+  .caption span:first-child {
+    font-size: 0.95rem;
+  }
+
+  .caption span:last-child {
+    font-size: 0.8rem;
   }
 }
