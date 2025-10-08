@@ -103,7 +103,7 @@
      align-items: flex-start;
      padding: 1.5rem 2rem;
      color: #fff;
-     background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
+     background: linear-gradient(to top, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
      font-size: 0.75rem;
      letter-spacing: 0.5px;
      pointer-events: none;
@@ -234,7 +234,7 @@
      }
    
      header {
-       padding: 15px 0;
+       padding: 30px 0;
      }
    
      .logo {
@@ -250,7 +250,7 @@
      }
    
      .project {
-       height: 33.333vh;
+       height: 30vh;
      }
 
      .project-gallery {
