@@ -1,155 +1,287 @@
-/* ========== Base Reset & Typography ========== */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: 'Gordita-Regular', serif;
-  font-size: 0.90rem;
-  line-height: 20px;
-  background-color: #EEEEEE;
-  color: #000000;
-  scroll-behavior: smooth;
-}
-
-/* ========== Navigation ========== */
-header {
-  background: #EEEEEE;
-  padding: 25px;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-family: 'Signifier-Regular', serif;
-  font-size: 1.75rem;
-  font-weight: 400;
-}
-
-.menu {
-  display: flex;
-  gap: 2rem;
-}
-
-.menu a {
-  text-decoration: none;
-  color: #000;
-  font-weight: 500;
-  transition: opacity 0.2s ease;
-}
-
-.menu a:hover {
-  opacity: 0.6;
-}
-
-/* ========== Main Content ========== */
-main {
-  display: grid;
-  grid-template-columns: 1fr;
-  margin: 0 25px; /* 25px margin on both sides */
-  scroll-snap-type: y mandatory;
-  overscroll-behavior-y: none;
-}
-
-.project {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  width: 100%;
-  height: 90vh; /* fills most of the viewport height */
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-
-/* --- Image Styling --- */
-.project img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* keeps the image proportionally scaled */
-  display: block;
-  transition: transform 0.5s ease;
-  background-color: #ccc;
-}
-
-/* Hover zoom effect */
-.project:hover img {
-  transform: scale(1.03);
-}
-
-/* ========== Caption Overlay ========== */
-.caption {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding: 1.5rem 2rem;
-  color: #fff;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
-  font-size: 0.5rem;
-  letter-spacing: 0.5px;
-  pointer-events: none; /* allows clicks through the overlay */
-}
-
-.caption span:first-child {
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-
-.caption span:last-child {
-  font-weight: 400;
-  font-size: 0.9rem;
-  opacity: 0.9;
-}
-
-/* ========== Mobile (≤430px) ========== */
-@media (max-width: 430px) {
-  header {
-    padding: 15px;
+/* =====================================================
+   BASE RESET & TYPOGRAPHY
+   ===================================================== */
+   *,
+   *::before,
+   *::after {
+     box-sizing: border-box;
+   }
+   
+   html, body {
+     margin: 0 20px; /* global 20px margins — same as homepage */
+     padding: 0;
+     font-family: 'Gordita-Regular', serif;
+     font-size: 0.90rem;
+     line-height: 20px;
+     background-color: #EEEEEE;
+     color: #000000;
+     scroll-behavior: smooth;
+   }
+   
+   /* =====================================================
+      NAVIGATION (Shared Across All Pages)
+      ===================================================== */
+   header {
+     background: #EEEEEE;
+     padding: 25px 0;
+     position: sticky;
+     top: 0;
+     z-index: 10;
+   }
+   
+   .nav {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+   }
+   
+   .logo {
+    font-family: 'Signifier-Regular', serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    text-decoration: none;
+    color: #000;
   }
+   
+   .menu {
+     display: flex;
+     gap: 2rem;
+   }
+   
+   .menu a {
+     text-decoration: none;
+     color: #000;
+     font-weight: 500;
+     transition: opacity 0.2s ease;
+   }
+   
+   .menu a:hover {
+     opacity: 0.6;
+   }
+   
+   /* =====================================================
+      HOMEPAGE LAYOUT
+      ===================================================== */
+   main.homepage {
+     display: grid;
+     grid-template-columns: 1fr;
+     margin: 0; /* the 20px comes from body, not main */
+     scroll-snap-type: y mandatory;
+     overscroll-behavior-y: none;
+   }
+   
+   .project {
+     position: relative;
+     display: block;
+     overflow: hidden;
+     width: 100%;
+     height: 90vh;
+     scroll-snap-align: start;
+     scroll-snap-stop: always;
+   }
+   
+   .project img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     display: block;
+     transition: transform 0.5s ease;
+     background-color: #ccc;
+   }
+   
+   .project:hover img {
+     transform: scale(1.03);
+   }
+   
+   /* --- Caption Overlay (homepage only) --- */
+   .caption {
+     position: absolute;
+     inset: 0;
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-end;
+     align-items: flex-start;
+     padding: 1.5rem 2rem;
+     color: #fff;
+     background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
+     font-size: 0.75rem;
+     letter-spacing: 0.5px;
+     pointer-events: none;
+   }
+   
+   .caption span:first-child {
+     font-weight: 600;
+     font-size: 1.1rem;
+   }
+   
+   .caption span:last-child {
+     font-weight: 400;
+     font-size: 0.9rem;
+     opacity: 0.9;
+   }
+   
+   /* =====================================================
+      PROJECT PAGE LAYOUT
+      ===================================================== */
+   main.project-page {
+     margin: 0; /* keep consistent with homepage — body handles the margin */
+   }
+   
+   /* --- Hero Section --- */
+   .project-hero {
+     display: grid;
+     grid-template-columns: 1.6fr 1fr;
+     align-items: start;
+     gap: 2rem;
+     padding: 50px 0 25px 0;
+   }
+   
+   .intro h1 {
+     margin: 0 0 10px 0;
+     font-family: 'Gordita-Medium', serif;
+     font-size: 1rem;
+     line-height: 1.1;
+   }
+   
+   .description {
+     margin: 0;
+     max-width: 70ch;
+   }
+   
+   /* --- Meta Section --- */
+   .meta dl {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+    padding-top: 26.5px;
+   }
+   
+   /* --- Gallery Section --- */
+   .project-gallery {
+     display: grid;
+     grid-template-columns: 1fr;
+     gap: 2rem;
+     padding: 16px 0 40px 0;
+   }
+   
+   .gallery-item {
+     position: relative;
+     width: 100%;
+     height: 90vh;
+     overflow: hidden;
+     margin: 0px;
+   }
+   
+   .gallery-item img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     display: block;
+     background-color: #ccc;
+     transition: transform 0.5s ease;
+   }
+   
+   .gallery-item:hover img {
+     transform: scale(1.02);
+   }
+   
+   /* =====================================================
+      RESPONSIVE DESIGN
+      ===================================================== */
+   
+   /* --- Tablet (≤1080px) --- */
+   @media (max-width: 1080px) {
+     html, body {
+       margin: 0 20px; /* same gutter on tablet */
+     }
+   
+     header {
+       padding: 25px 0;
+     }
+   
+     .logo {
+       font-size: 1.75rem;
+     }
+   
+     .menu {
+       gap: 1.5rem;
+     }
+   
+     .project {
+       height: 90vh;
+     }
+   
+     .project-hero {
+       grid-template-columns: 1fr;
+       gap: 1rem;
+       padding-top: 18px;
+     }
+   
+     .meta {
+       padding-top: 4px;
+     }
+   
+     .gallery-item {
+       height: 80vh;
+     }
+   }
+   
+   /* --- Mobile (≤455px) --- */
+   @media (max-width: 455px) {
+     html, body {
+       margin: 0 10px; /* mobile gutters */
+     }
+   
+     header {
+       padding: 15px 0;
+     }
+   
+     .logo {
+       font-size: 1.3rem;
+     }
+   
+     .menu {
+       gap: 1rem;
+     }
+   
+     .menu a {
+       font-size: 0.9rem;
+     }
+   
+     .project {
+       height: 33.333vh;
+     }
 
-  .logo {
-    font-size: 1.3rem;
-  }
+     .project-gallery {
+       gap: 1.35rem;
+     }
+   
+     .caption {
+       padding: 1rem 1.25rem;
+       font-size: 1rem;
+     }
+   
+     .caption span:first-child,
+     .caption span:last-child {
+       font-size: 0.85rem;
+     }
+   
+     .project-hero {
+       gap: 0.75rem;
+       padding-top: 75px;
+     }
+   
+     .intro h1 {
+       font-size: 1rem;
+     }
+   
+     .gallery-item {
+       height: 25vh;
+     }
 
-  .menu {
-    gap: 1rem;
-  }
-
-  .menu a {
-    font-size: 0.9rem;
-  }
-
-  main {
-    margin: 0 15px;
-  }
-
-  .project {
-    height: 25vh; /* smaller height to fit mobile screens */
-  }
-
-  .caption {
-    padding: 1rem 1.25rem;
-    font-size: 0.55rem;
-  }
-
-  .caption span:first-child {
-    font-size: 0.55rem;
-  }
-
-  .caption span:last-child {
-    font-size: 0.55rem;
-  }
-}
+     .meta dl {
+      padding-top: 20px;
+     }
+   }
+   
