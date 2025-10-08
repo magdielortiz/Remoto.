@@ -130,7 +130,7 @@
    /* --- Hero Section --- */
    .project-hero {
      display: grid;
-     grid-template-columns: 1.6fr 1fr;
+     grid-template-columns: 1.2fr 1fr;
      align-items: start;
      gap: 2rem;
      padding: 50px 0 25px 0;
@@ -145,7 +145,7 @@
    
    .description {
      margin: 0;
-     max-width: 70ch;
+     max-width: 50ch;
    }
    
    /* --- Meta Section --- */
@@ -235,7 +235,11 @@
   object-fit: cover;
   display: block;
 }
-.partner-header { line-height: 1.35; }
+.partner-header {
+  line-height: 1.35;
+  padding: 15px 0;
+}
+
 .partner-name {
   margin: 0 0 2px 0;
   font-family: 'Gordita-Medium', serif;
@@ -316,6 +320,13 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 0.5rem 1.5rem;
     }
+
+    .about-description {
+      padding-bottom: 30px;
+
+    .partner-bio {
+      padding-bottom: 30px;
+    }
    }
    
    /* --- Mobile (≤455px) --- */
@@ -387,5 +398,11 @@
      .partner-name { font-size: 0.95rem; }
      .partner-title,
      .partner-location { font-size: 0.85rem; }
+
+     .about-description {
+      padding-bottom: 30px;
+
+     .partner-bio {
+      padding-bottom: 30px;
+    }
    }
-   
