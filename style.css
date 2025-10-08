@@ -32,12 +32,12 @@
    .nav {
      display: flex;
      justify-content: space-between;
-     align-items: center;
+     align-items: baseline;
    }
    
    .logo {
     font-family: 'Signifier-Regular', serif;
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-weight: 400;
     text-decoration: none;
     color: #000;
@@ -201,7 +201,7 @@
      }
    
      .logo {
-       font-size: 1.75rem;
+       font-size: 2rem;
      }
    
      .menu {
@@ -238,7 +238,7 @@
      }
    
      .logo {
-       font-size: 1.3rem;
+       font-size: 2rem;
      }
    
      .menu {
