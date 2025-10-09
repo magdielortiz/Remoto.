@@ -16,7 +16,14 @@
      background-color: #EEEEEE;
      color: #000000;
      scroll-behavior: smooth;
+     -ms-overflow-style: none;
+     scrollbar-width: none;
    }
+
+   /* For Chrome, Safari, and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
    
    /* =====================================================
       NAVIGATION (Shared Across All Pages)
@@ -112,12 +119,6 @@
    .caption span:first-child {
      font-weight: 600;
      font-size: 1.1rem;
-   }
-   
-   .caption span:last-child {
-     font-weight: 400;
-     font-size: 0.9rem;
-     opacity: 0.9;
    }
    
    /* =====================================================
@@ -238,6 +239,7 @@
 .partner-header {
   line-height: 1.35;
   padding: 15px 0;
+  position: relative;
 }
 
 .partner-name {
@@ -357,7 +359,7 @@
      }
 
      .project-gallery {
-       gap: 1.35rem;
+       gap: 1rem;
      }
    
      .caption {
