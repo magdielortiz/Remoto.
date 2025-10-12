@@ -20,9 +20,9 @@
     </nav>
   </header>
   <main id="content">
-    <h2>A graphic design studio specializing in visual identity and consultancy.<br>
+    <h1>A graphic design studio specializing in visual identity and consultancy.<br>
     Our approach is thoughtful, research-driven and precise.<br>
-    The result is design that's clear, purposeful and built to last.</h2>
+    The result is design that's clear, purposeful and built to last.</h1>
 
   <div class="project">
    <a href="Projects/Mastercard.html" aria-label="Open Project 01">
@@ -59,5 +59,59 @@
     <div class="caption"><span>Taboas</span></div>
   </div>
   </main>
+
+  <footer class="site-footer" aria-label="City clocks">
+    <div class="clocks">
+      <div class="clock left">
+        <span class="city">Seattle:</span>
+        <span class="time" id="clock-sea" aria-live="polite">--:--</span>
+      </div>
+      <div class="clock center">
+        <span class="city">Miami:</span>
+        <span class="time" id="clock-mia" aria-live="polite">--:--</span>
+      </div>
+      <div class="clock right">
+        <span class="city">Bogotá:</span>
+        <span class="time" id="clock-bog" aria-live="polite">--:--</span>
+      </div>
+    </div>
+  </footer>
 </body>
+<script>
+  (function startClocks() {
+    const els = {
+      sea: document.getElementById('clock-sea'),
+      mia: document.getElementById('clock-mia'),
+      bog: document.getElementById('clock-bog')
+    };
+    const zones = {
+      sea: 'America/Los_Angeles',
+      mia: 'America/New_York',
+      bog: 'America/Bogota'
+    };
+
+    const fmt = (tz, d) =>
+      new Intl.DateTimeFormat('en-US', {
+        hour: 'numeric',
+        minute: '2-digit',
+        second: '2-digit',   // ← add seconds
+        hour12: true,
+        timeZone: tz
+      })
+      .format(d)
+      .replace(/\s/g, '')    // remove space before AM/PM
+      .toUpperCase();        // am/pm → uppercase
+
+    function tick() {
+      const now = new Date();
+      els.sea.textContent = fmt(zones.sea, now);
+      els.mia.textContent = fmt(zones.mia, now);
+      els.bog.textContent = fmt(zones.bog, now);
+    }
+
+    tick();
+    setInterval(tick, 1000); // update every second
+  })();
+</script>
+
 </html>

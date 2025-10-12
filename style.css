@@ -3,12 +3,10 @@
    ===================================================== */
    *,
    *::before,
-   *::after {
-     box-sizing: border-box;
-   }
+   *::after { box-sizing: border-box; }
    
    html, body {
-     margin: 0 20px; /* global 20px margins — same as homepage */
+     margin: 0 20px;                 /* global gutters */
      padding: 0;
      font-family: 'Gordita-Regular', serif;
      font-size: 0.90rem;
@@ -19,11 +17,8 @@
      -ms-overflow-style: none;
      scrollbar-width: none;
    }
-
-   /* For Chrome, Safari, and Opera */
-body::-webkit-scrollbar {
-  display: none;
-}
+   /* For Chrome, Safari, Opera */
+   body::-webkit-scrollbar { display: none; }
    
    /* =====================================================
       NAVIGATION (Shared Across All Pages)
@@ -43,114 +38,96 @@ body::-webkit-scrollbar {
    }
    
    .logo {
-    font-family: 'Signifier-Regular', serif;
-    font-size: 2rem;
-    font-weight: 400;
-    letter-spacing: -1px;
-    text-decoration: none;
-    color: #000;
-  }
-   
-   .menu {
-     display: flex;
-     gap: 2rem;
+     font-family: 'Signifier-Regular', serif;
+     font-size: 2rem;
+     font-weight: 400;
+     letter-spacing: -1px;
+     text-decoration: none;
+     color: #000;
    }
    
+   .menu { display: flex; gap: 2rem; }
    .menu a {
      text-decoration: none;
      color: #000;
      font-weight: 500;
      transition: opacity 0.2s ease;
    }
-   
-   .menu a:hover {
-     opacity: 0.6;
-   }
+   .menu a:hover { opacity: 0.6; }
    
    /* =====================================================
-      HOMEPAGE LAYOUT
+      HOMEPAGE
       ===================================================== */
-
-    h2 {
-    font-family: 'Gordita-Regular', serif;
-    font-size: 1.40rem;
-    font-weight: 400;
-    line-height: 2.15rem;
-    text-align: left;
-    margin-top: 110px;
-    margin-bottom: 125px;
+   h1 {
+     font-family: 'Gordita-Regular', serif;
+     font-size: 1.40rem;
+     font-weight: 400;
+     line-height: 2.15rem;
+     text-align: left;
+     margin-top: 110px;
+     margin-bottom: 125px;
    }
-
+   
    main.homepage {
      display: grid;
-     grid-template-columns: 1fr;
-     margin: 0; /* the 20px comes from body, not main */
+     grid-template-columns: 1fr;   /* desktop = single column */
+     margin: 0;                    /* gutters come from body */
      scroll-snap-type: y mandatory;
      overscroll-behavior-y: none;
    }
    
+   /* Project card: image + caption (caption not linked) */
    .project {
-    position: relative;
-    display: flex;
-    flex-direction: column;  /* stack image + caption vertically */
-    overflow: hidden;
-    width: 100%;
-    height: auto;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    margin-bottom: 20px; /* space between projects */
-  }
-
-  .project a {
-    display: block;
-    overflow: hidden;
-    position: relative;
-    isolation: isolate; /* keeps scaling inside the container, prevents layout shift */
-  }
-  
-  .project img {
-    width: 100%;
-    height: 90vh;
-    object-fit: cover;
-    display: block;
-    background-color: #ccc;
-    transition: transform 0.5s ease;
-    transform-origin: center center; /* scale from the center, not the edge */
-    will-change: transform;          /* smooth GPU rendering */
-  }
-  
-  .project a:hover img {
-    transform: scale(1.03);
-  }
-   
-   .caption {
-    position: static;              /* no absolute positioning */
-    background: none;              /* remove overlay gradient */
-    color: #000000 80%;                   /* black text for white background */
-    font-size: 1rem;
-    font-weight: 400;
-    letter-spacing: 0.25px;
-    padding-top: 10px;
-    pointer-events: auto;
-  }
-  
-  .caption span:first-child {
-    font-family: 'Gordita-Regular', serif;
-    font-size: 1rem;
-    font-weight: 400;
-  }
-   
-   /* =====================================================
-      PROJECT PAGE LAYOUT
-      ===================================================== */
-   main.project-page {
-     margin: 0; /* keep consistent with homepage — body handles the margin */
+     position: relative;
+     display: flex;
+     flex-direction: column;       /* stack image + caption */
+     width: 100%;
+     height: auto;
+     margin-bottom: 20px;
+     scroll-snap-align: start;
+     scroll-snap-stop: always;
    }
    
-   /* --- Hero Section --- */
+   .project a {
+     display: block;
+     overflow: hidden;
+     position: relative;
+     isolation: isolate;           /* prevents hover scale from affecting layout */
+   }
+   
+   .project img {
+     width: 100%;
+     height: 90vh;                 /* immersive desktop height */
+     object-fit: cover;
+     display: block;
+     background-color: #ccc;
+     transition: transform 0.5s ease;
+     transform-origin: center center; /* no “jump” on hover */
+     will-change: transform;
+   }
+   .project a:hover img { transform: scale(1.03); }
+   
+   /* Caption below image */
+   .caption {
+     margin-top: 10px;
+     font-family: 'Gordita-Regular', serif;
+     font-size: 1rem;
+     font-weight: 400;
+     color: rgba(0,0,0,.9);
+     letter-spacing: 0.25px;
+     text-align: left;
+     pointer-events: none;         /* not clickable */
+   }
+   .caption span { display: inline-block; }
+   
+   /* =====================================================
+      PROJECT PAGE
+      ===================================================== */
+   main.project-page { margin: 0; } /* gutters from body */
+   
    .project-hero {
      display: grid;
-     grid-template-columns: 1.2fr 1fr;
+     grid-template-columns: 1.2fr 1fr;  /* desktop: two columns */
      align-items: start;
      gap: 2rem;
      padding: 50px 0 25px 0;
@@ -163,21 +140,17 @@ body::-webkit-scrollbar {
      line-height: 1.1;
    }
    
-   .description {
-     margin: 0;
-     max-width: 50ch;
-   }
+   .description { margin: 0; max-width: 50ch; }
    
-   /* --- Meta Section --- */
    .meta dl {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    row-gap: 2px;
-    padding-top: 26.5px;
+     margin: 0;
+     display: flex;
+     flex-direction: column;
+     row-gap: 2px;
+     padding-top: 26.5px;
    }
    
-   /* --- Gallery Section --- */
+   /* Gallery (desktop one column) */
    .project-gallery {
      display: grid;
      grid-template-columns: 1fr;
@@ -190,7 +163,7 @@ body::-webkit-scrollbar {
      width: 100%;
      height: 90vh;
      overflow: hidden;
-     margin: 0px;
+     margin: 0;
    }
    
    .gallery-item img {
@@ -200,271 +173,184 @@ body::-webkit-scrollbar {
      display: block;
      background-color: #ccc;
      transition: transform 0.5s ease;
+     transform-origin: center center;
+     will-change: transform;
    }
+   .gallery-item:hover img { transform: scale(1.03); }
    
-   .gallery-item:hover img {
-     transform: scale(1.02);
-   }
-
+   /* =====================================================
+      ABOUT PAGE
+      ===================================================== */
    main.about-page { margin: 0; }
+   
+   .about-section { padding: 40px 0 0; }
+   .about-section + .about-section { padding-top: 32px; }
+   
+   .about-title,
+   .about-subtitle {
+     margin: 0 0 14px 0;
+     font-family: 'Gordita-Medium', serif;
+     font-size: 1rem;
+     line-height: 1.1;
+   }
+   .about-description { margin: 0; max-width: 75ch; }
+   
+   /* Partners */
+   .partners-grid {
+     display: grid;
+     grid-template-columns: repeat(3, minmax(0, 1fr));
+     gap: 2rem;
+     align-items: start;
+     padding-top: 8px;
+   }
+   .partner-card {
+     display: grid;
+     grid-template-rows: auto auto 1fr;
+     gap: 0.75rem;
+   }
+   .partner-media {
+     aspect-ratio: 5 / 5;
+     overflow: hidden;
+     background: #d9d9d9;
+     margin: 0;
+   }
+   .partner-media img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     display: block;
+   }
+   .partner-header { line-height: 1.35; padding: 15px 0; position: relative; }
+   .partner-name {
+     margin: 0 0 2px 0;
+     font-family: 'Gordita-Medium', serif;
+     font-size: 1rem;
+   }
+   .partner-title, .partner-location { margin: 0; font-size: 0.9rem; opacity: 0.85; }
+   .partner-bio { margin: 0; max-width: 70ch; }
+   
+   /* Clients */
+   .clients { padding-bottom: 48px; }
+   .client-list {
+     list-style: none;
+     padding: 0;
+     margin: 8px 0 0 0;
+     display: flex;
+     flex-direction: column;
+     gap: 0.5rem 2rem;
+   }
+   .client-list li { break-inside: avoid; line-height: 1.5; }
 
-/* Section spacing */
-.about-section { padding: 40px 0 0; }
-.about-section + .about-section { padding-top: 32px; }
-
-/* Headings + copy */
-.about-title {
-  margin: 0 0 14px 0;
-  font-family: 'Gordita-Medium', serif;
-  font-size: 1rem;
-  line-height: 1.1;
-}
-.about-subtitle {
-  margin: 0 0 14px 0;
-  font-family: 'Gordita-Medium', serif;
-  font-size: 1rem;
-  line-height: 1.1;
-}
-.about-description {
-  margin: 0;
-  max-width: 75ch;
+   /* ===== Sticky footer clocks ===== */
+.site-footer {
+  position: sticky;      /* sticks to bottom once reached */
+  bottom: 0px;
+  background: #EEEEEE;
+  border-top: 1px solid rgba(0,0,0,.1);
+  padding: 20px 0;
+  z-index: 9;            /* below header (z=10), above content */
 }
 
-/* ---------- Partners ---------- */
-.partners-grid {
+.clocks {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2rem;
-  align-items: start;
-  padding-top: 8px;
-}
-.partner-card {
-  display: grid;
-  grid-template-rows: auto auto 1fr;
-  gap: 0.75rem;
-}
-.partner-media {
-  aspect-ratio: 5 / 5;
-  overflow: hidden;
-  background: #d9d9d9;
-  margin: 0;
-}
-.partner-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.partner-header {
-  line-height: 1.35;
-  padding: 15px 0;
-  position: relative;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
 }
 
-.partner-name {
-  margin: 0 0 2px 0;
-  font-family: 'Gordita-Medium', serif;
-  font-size: 1rem;
-}
-.partner-title,
-.partner-location {
-  margin: 0;
-  font-size: 0.9rem;
-  opacity: 0.85;
-}
-.partner-bio {
-  margin: 0;
-  max-width: 70ch;
+.clock {
+  font-family: 'Gordita-Regular', serif;
+  font-size: .90rem;       /* as requested */
+  line-height: 1;
+  color: #000;
 }
 
-/* ---------- Clients ---------- */
-.clients { padding-bottom: 48px; }
-.client-list {
-  list-style: none;
-  padding: 0;
-  margin: 8px 0 0 0;
-  display: flex;
-  flex-direction: column;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.5rem 2rem;
-}
-.client-list li {
-  break-inside: avoid;
-  line-height: 1.5;
-}
+.clock.left   { text-align: left; }
+.clock.center { text-align: center; }
+.clock.right  { text-align: right; }
+
+.clock .city { margin-right: .5rem; opacity: .85; }
+.clock .time { font-variant-numeric: tabular-nums; }
    
    /* =====================================================
       RESPONSIVE DESIGN
       ===================================================== */
    
-   /* --- Tablet (≤1080px) --- */
-   @media (max-width: 1080px) {
-     html, body {
-       margin: 0 20px; /* same gutter on tablet */
-     }
-   
-     header {
-       padding: 25px 0;
-     }
-   
-     .logo {
-       font-size: 2rem;
-       letter-spacing: -1px;
-     }
-   
-     .menu {
-       gap: 1.5rem;
-     }
-   
-  /* Turn the main content into a 2-col grid on tablet */
+   /* ---------- Tablet (≤1080px)
+      - Keep text one column
+      - Make images two columns (homepage projects + project gallery)
+      ----------------------------------------------------- */
+   /* ---------- Tablet (≤1080px)
+   - Keep text one column
+   - Make images two columns (homepage projects + project gallery)
+   ----------------------------------------------------- */
+@media (max-width: 1080px) {
+  html, body { margin: 0 20px; }      /* same tablet gutters */
+  header { padding: 25px 0; }
+  .logo { font-size: 2rem; letter-spacing: -1px; }
+  .menu { gap: 1.5rem; }
+
+  /* HOMEPAGE: two-column images only */
   #content {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* ← two columns on tablet */
     column-gap: 20px;
     row-gap: 40px;
   }
-
-  /* Make the intro paragraph span both columns */
-  #content > h2 {
-    grid-column: 1 / -1;
-    margin-bottom: 75px; /* a bit tighter before the grid starts */
+  #content > h1 {
+    grid-column: 1 / -1;              /* heading spans both columns */
+    margin-bottom: 75px;
   }
+  .project { margin: 0; height: auto; }
+  .project img { height: 30vh; }
+  .caption { font-size: 1rem; margin-top: 8px; }
 
-  /* Let cards fit the grid cleanly */
-  .project {
-    margin: 0; /* remove bottom margin; grid handles spacing */
-    height: auto; /* let the image set the height in this breakpoint */
+  /* PROJECT PAGE: gallery becomes two columns, text stacks */
+  .project-hero { grid-template-columns: 1fr; gap: 1rem; padding-top: 18px; }
+  .project-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .gallery-item { height: auto; }
+  .gallery-item img { height: 35vh; object-fit: cover; }
+
+  /* ABOUT: two columns for partners & clients lists */
+  .partners-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+  .client-list { gap: 0.5rem 1.5rem; }
+  .about-description, .partner-bio { padding-bottom: 30px; }
+}
+
+/* ---------- Mobile (≤455px)
+   - Back to one column everywhere
+   ----------------------------------------------------- */
+@media (max-width: 455px) {
+  html, body { margin: 0 10px; }      /* mobile gutters */
+  header { padding: 30px 0; }
+  .logo { font-size: 2rem; letter-spacing: -1px; }
+  .menu { gap: 1rem; }
+  .menu a { font-size: 0.9rem; }
+
+  /* HOMEPAGE: single column */
+  #content { display: block; }
+  h1 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    width: 85%;
+    margin-top: 75px;
+    margin-bottom: 150px;
   }
+  .project { height: auto; margin-bottom: 10px; }
+  .project img { height: 30vh; }
+  .caption { padding-top: 0; font-size: .85rem; }
+  .clock { font-size: 0.75rem; }
 
-  /* Shorter image height for 2-col layout */
-  .project img {
-    height: 30vh; /* was 90vh; better balance in two columns */
-  }
+  /* PROJECT PAGE: stack hero, single-column gallery */
+  .project-hero { display: block; padding-top: 75px; }
+  .project-gallery { grid-template-columns: 1fr; gap: 16px; }
+  .gallery-item img { height: 25vh; }
+  .meta dl { padding-top: 20px; }
 
-  .caption {
-    font-size: 1rem;
-    margin-top: 8px;
-  }
-   
-     .meta {
-       padding-top: 4px;
-     }
-   
-     .gallery-item {
-       height: 80vh;
-     }
-
-     .partners-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.5rem;
-    }
-    .client-list {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.5rem 1.5rem;
-    }
-
-    .about-description {
-      padding-bottom: 30px;
-    }
-
-    .partner-bio {
-      padding-bottom: 30px;
-    }
-   }
-   
-   /* --- Mobile (≤455px) --- */
-   @media (max-width: 455px) {
-     html, body {
-       margin: 0 10px; /* mobile gutters */
-     }
-   
-     header {
-       padding: 30px 0;
-     }
-   
-     .logo {
-       font-size: 2rem;
-       letter-spacing: -1px;
-     }
-   
-     .menu {
-       gap: 1rem;
-     }
-   
-     .menu a {
-       font-size: 0.9rem;
-     }
-
-     #content {
-      display: block; /* return to single column for small screens */
-    }
-
-     h2 {
-      font-size: 1.25rem;
-      line-height: 1.75rem;
-      width: 85%;
-      margin-top: 75px;
-      margin-bottom: 150px;
-    }
-   
-     .project {
-       height: 35vh;
-       margin-bottom: 0px;
-     }
-
-     .project img {
-      height: 30vh;
-     }
-
-     .project-gallery {
-       gap: 1rem;
-     }
-   
-     .caption {
-      padding-top: 0px;
-      font-size: 1rem;
-     }
-   
-     .caption span:first-child,
-     .caption span:last-child {
-       font-size: 0.85rem;
-     }
-   
-     .project-hero {
-       gap: 0.75rem;
-       padding-top: 75px;
-     }
-   
-     .intro h1 {
-       font-size: 1rem;
-     }
-   
-     .gallery-item {
-       height: 25vh;
-     }
-
-     .meta dl {
-      padding-top: 20px;
-     }
-
-     .about-section { padding-top: 28px; }
-     .partners-grid {
-       grid-template-columns: 1fr;
-       gap: 1rem;
-     }
-     .client-list {
-       grid-template-columns: 1fr;
-       gap: 0.4rem 1rem;
-     }
-     .partner-name { font-size: 0.95rem; }
-     .partner-title,
-     .partner-location { font-size: 0.85rem; }
-
-     .about-description {
-      padding-bottom: 30px;
-     }
-
-     .partner-bio {
-      padding-bottom: 30px;
-    }
-   }
+  /* ABOUT: single column */
+  .about-section { padding-top: 28px; }
+  .partners-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .client-list { grid-template-columns: 1fr; gap: 0.4rem 1rem; }
+  .partner-name { font-size: 0.95rem; }
+  .partner-title, .partner-location { font-size: 0.85rem; }
+  .about-description, .partner-bio { padding-bottom: 30px; }
+}
