@@ -3,27 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta property="og:title" content="Mastercard — We Are Remoto." />
-  <meta property="og:image" content="https://magdielortiz.github.io/Remoto..//Images/WebThumbnail.jpg" />
-  <title>Mastercard — We Are Remoto.</title>
-  <link rel="stylesheet" href="..//fonts.css" />
-  <link rel="stylesheet" href="..//style.css" />
-  <link rel="icon" href="..//Images/Favicon.png" type="image/png" sizes="16x16" />
-</head>
 
+  <meta property="og:title" content="Mastercard — We Are Remoto." />
+  <meta property="og:image" content="https://magdielortiz.github.io/Remoto/Images/WebThumbnail.jpg" />
+
+  <title>Mastercard — We Are Remoto.</title>
+
+  <!-- Fonts first, then main stylesheet -->
+  <link rel="stylesheet" href="../fonts.css" />
+  <link rel="stylesheet" href="../style.css" />
+
+  <link rel="icon" href="../Images/Favicon.png" type="image/png" sizes="16x16" />
+</head>
 <body>
+  <!-- Navigation -->
   <header>
     <nav class="nav" aria-label="Primary">
-      <a href="..//index.html" class="logo">Remoto.</a>
+      <a href="../index.html" class="logo">Remoto.</a>
       <div class="menu" role="menubar">
-        <a href="..//index.html" aria-current="page" role="menuitem">Work</a>
-        <a href="..//about.html" role="menuitem">About</a>
+        <a href="../index.html" aria-current="page" role="menuitem">Work</a>
+        <a href="../about.html" role="menuitem">About</a>
       </div>
     </nav>
   </header>
 
   <main id="content" class="project-page">
-    <!-- Hero: title/description (left) + meta (right) -->
+    <!-- Hero Section -->
     <section class="project-hero" aria-labelledby="project-title">
       <div class="intro">
         <h1 id="project-title">Mastercard</h1>
@@ -37,43 +42,93 @@
 
       <aside class="meta" aria-label="Project details">
         <dl>
-          <div>
-            <dt>Partner: Magdiel Ortiz</dt>
-          </div>
-          <div>
-            <dt>Service: Design System</dt>
-          </div>
-          <div>
-            <dt>Studio: Pentagram</dt>
-          </div>
+          <div><dt>Partner: Magdiel Ortiz</div>
+          <div><dt>Service: Design System</div>
+          <div><dt>Studio: Pentagram</div>
         </dl>
       </aside>
     </section>
 
-    <!-- Gallery: five full-width images, no overlay -->
+    <!-- Gallery -->
     <section class="project-gallery" aria-label="Project images">
       <figure class="gallery-item">
-        <img src="..//Images/Mastercard01.jpg" alt="Mastercard branding — hero composition" loading="lazy" />
+        <img src="../Images/Mastercard01.jpg" alt="Mastercard branding — primary hero composition" loading="lazy" />
       </figure>
       <figure class="gallery-item">
-        <img src="..//Images/Mastercard02.jpg" alt="Mastercard branding — hero composition" loading="lazy" />
+        <img src="../Images/Mastercard02.jpg" alt="Mastercard branding system visuals" loading="lazy" />
       </figure>
       <figure class="gallery-item">
-        <img src="..//Images/Mastercard03.jpg" alt="Mastercard branding — hero composition" loading="lazy" />
+        <img src="../Images/Mastercard03.jpg" alt="Mastercard logo and identity grid" loading="lazy" />
       </figure>
       <figure class="gallery-item">
-        <img src="..//Images/Mastercard05.jpg" alt="Mastercard branding — hero composition" loading="lazy" />
+        <img src="../Images/Mastercard05.jpg" alt="Mastercard color and typography presentation" loading="lazy" />
       </figure>
       <figure class="gallery-item">
-        <img src="..//Images/Mastercard06.jpg" alt="Mastercard branding — hero composition" loading="lazy" />
+        <img src="../Images/Mastercard06.jpg" alt="Mastercard print collateral and signage" loading="lazy" />
       </figure>
       <figure class="gallery-item">
-        <img src="..//Images/Mastercard07.jpg" alt="Mastercard branding — hero composition" loading="lazy" />
+        <img src="../Images/Mastercard07.jpg" alt="Mastercard mobile app branding" loading="lazy" />
       </figure>
       <figure class="gallery-item">
-        <img src="..//Images/Mastercard08.jpg" alt="Mastercard branding — hero composition" loading="lazy" />
+        <img src="../Images/Mastercard08.jpg" alt="Mastercard environmental design and digital visuals" loading="lazy" />
       </figure>
     </section>
   </main>
+
+  <!-- Sticky Footer with Live Clocks -->
+  <footer class="site-footer" aria-label="City clocks">
+    <div class="clocks">
+      <div class="clock left">
+        <span class="city">Seattle:</span>
+        <span class="time" id="clock-sea" aria-live="polite">--:--:--</span>
+      </div>
+      <div class="clock center">
+        <span class="city">Miami:</span>
+        <span class="time" id="clock-mia" aria-live="polite">--:--:--</span>
+      </div>
+      <div class="clock right">
+        <span class="city">Bogotá:</span>
+        <span class="time" id="clock-bog" aria-live="polite">--:--:--</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Live Clock Script -->
+  <script>
+    (function startClocks() {
+      const els = {
+        sea: document.getElementById('clock-sea'),
+        mia: document.getElementById('clock-mia'),
+        bog: document.getElementById('clock-bog')
+      };
+      const zones = {
+        sea: 'America/Los_Angeles',
+        mia: 'America/New_York',
+        bog: 'America/Bogota'
+      };
+
+      const fmt = (tz, d) =>
+        new Intl.DateTimeFormat('en-US', {
+          hour: 'numeric',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: true,
+          timeZone: tz
+        })
+        .format(d)
+        .replace(/\s/g, '')
+        .toUpperCase();
+
+      function tick() {
+        const now = new Date();
+        els.sea.textContent = fmt(zones.sea, now);
+        els.mia.textContent = fmt(zones.mia, now);
+        els.bog.textContent = fmt(zones.bog, now);
+      }
+
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
 </body>
 </html>

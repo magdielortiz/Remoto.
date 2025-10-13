@@ -150,6 +150,10 @@
      row-gap: 2px;
      padding-top: 26.5px;
    }
+
+   .meta dd {
+    margin: 0;
+  }
    
    /* Gallery (desktop one column) */
    .project-gallery {
@@ -293,7 +297,7 @@
   /* HOMEPAGE: two-column images only */
   #content {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* ← two columns on tablet */
+    grid-template-columns: repeat(1, minmax(0, 1fr)); /* ← two columns on tablet */
     column-gap: 20px;
     row-gap: 40px;
   }

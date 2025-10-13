@@ -1,117 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:image" content="https://magdielortiz.github.io/Remoto.//Images/WebThumbnail.jpg"/>
-  <meta property="og:title" content="A Graphic Design & Consultancy Studio."/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta property="og:image" content="https://magdielortiz.github.io/Remoto.//Images/WebThumbnail.jpg" />
+  <meta property="og:title" content="A Graphic Design & Consultancy Studio." />
+
   <title>We Are Remoto.</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" type="text/css" href="fonts.css">
-    <link rel="icon" href="Images/Favicon.png" type="image" sizes="16x16">
+
+  <!-- Fonts first, then site styles -->
+  <link rel="stylesheet" href="fonts.css" />
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="icon" href="Images/Favicon.png" type="image/png" sizes="16x16" />
 </head>
+<body>
   <header>
     <nav class="nav" aria-label="Primary">
-      <div class="logo">Remoto.</div>
+      <a href="index.html" class="logo">Remoto.</a>
       <div class="menu" role="menubar">
         <a href="index.html" aria-current="page" role="menuitem">Work</a>
         <a href="about.html" role="menuitem">About</a>
       </div>
     </nav>
   </header>
-  <main id="content">
-    <h1>A graphic design studio specializing in visual identity and consultancy.<br>
-    Our approach is thoughtful, research-driven and precise.<br>
-    The result is design that's clear, purposeful and built to last.</h1>
 
-  <div class="project">
-   <a href="Projects/Mastercard.html" aria-label="Open Project 01">
-    <img src="Images/Mastercard01.jpg" alt="Project 01 — short descriptive alt text" loading="lazy" />
-   </a>
-    <div class="caption"><span>Mastercard</span></div>
-  </div>
+  <main id="content" class="homepage">
+    <h1>
+      A graphic design studio specializing in visual identity and consultancy.<br />
+      Our approach is thoughtful, research-driven and precise.<br />
+      The result is design that's clear, purposeful and built to last.
+    </h1>
 
-   <div class="project">
-    <a href="Projects/Piloto151.html" aria-label="Open Project 01">
-      <img src="Images/RFBusinessCardMockup.jpg" alt="Project 01 — short descriptive alt text" loading="lazy" />
-    </a>
-    <div class="caption"><span>Piloto 151</span></div>
-  </div>
+    <div class="project">
+      <a href="Projects/Mastercard.html" aria-label="Open Project 01">
+        <img src="Images/Mastercard01.jpg" alt="Project 01 — short descriptive alt text" loading="lazy" />
+      </a>
+      <div class="caption"><span>Mastercard</span></div>
+    </div>
 
-  <div class="project">
-    <a href="Projects/SanJuanArtisanDistillers.html" aria-label="Open Project 01">
-      <img src="Images/Pepon1.jpg" alt="Project 01 — short descriptive alt text" loading="lazy" />
-    </a>
-    <div class="caption"><span>San Juan Artisan Distillers</span></div>
-  </div>
+    <div class="project">
+      <a href="Projects/Piloto151.html" aria-label="Open Project 02">
+        <img src="Images/RFBusinessCardMockup.jpg" alt="Project 02 — short descriptive alt text" loading="lazy" />
+      </a>
+      <div class="caption"><span>Piloto 151</span></div>
+    </div>
 
-  <div class="project">
-    <a href="Projects/Jandi.html" aria-label="Open Project 01">
-      <img src="Images/Jandi_01.jpg" alt="Project 01 — short descriptive alt text" loading="lazy" />
-    </a>
-    <div class="caption"><span>Jandi</span></div>
-  </div>
+    <div class="project">
+      <a href="Projects/SanJuanArtisanDistillers.html" aria-label="Open Project 03">
+        <img src="Images/Pepon1.jpg" alt="Project 03 — short descriptive alt text" loading="lazy" />
+      </a>
+      <div class="caption"><span>San Juan Artisan Distillers</span></div>
+    </div>
 
-  <div class="project">
-    <a href="Projects/Taboas.html" aria-label="Open Project 01">
-      <img src="Images/TaboasWeb.jpg" alt="Project 01 — short descriptive alt text" loading="lazy" />
-    </a>
-    <div class="caption"><span>Taboas</span></div>
-  </div>
+    <div class="project">
+      <a href="Projects/Jandi.html" aria-label="Open Project 04">
+        <img src="Images/Jandi_01.jpg" alt="Project 04 — short descriptive alt text" loading="lazy" />
+      </a>
+      <div class="caption"><span>Jandi</span></div>
+    </div>
+
+    <div class="project">
+      <a href="Projects/Taboas.html" aria-label="Open Project 05">
+        <img src="Images/TaboasWeb.jpg" alt="Project 05 — short descriptive alt text" loading="lazy" />
+      </a>
+      <div class="caption"><span>Taboas</span></div>
+    </div>
   </main>
 
   <footer class="site-footer" aria-label="City clocks">
     <div class="clocks">
       <div class="clock left">
         <span class="city">Seattle:</span>
-        <span class="time" id="clock-sea" aria-live="polite">--:--</span>
+        <span class="time" id="clock-sea" aria-live="polite">--:--:--</span>
       </div>
       <div class="clock center">
         <span class="city">Miami:</span>
-        <span class="time" id="clock-mia" aria-live="polite">--:--</span>
+        <span class="time" id="clock-mia" aria-live="polite">--:--:--</span>
       </div>
       <div class="clock right">
         <span class="city">Bogotá:</span>
-        <span class="time" id="clock-bog" aria-live="polite">--:--</span>
+        <span class="time" id="clock-bog" aria-live="polite">--:--:--</span>
       </div>
     </div>
   </footer>
+
+  <script>
+    (function startClocks() {
+      const els = {
+        sea: document.getElementById('clock-sea'),
+        mia: document.getElementById('clock-mia'),
+        bog: document.getElementById('clock-bog')
+      };
+      const zones = {
+        sea: 'America/Los_Angeles',
+        mia: 'America/New_York',
+        bog: 'America/Bogota'
+      };
+
+      const fmt = (tz, d) =>
+        new Intl.DateTimeFormat('en-US', {
+          hour: 'numeric',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: true,
+          timeZone: tz
+        })
+          .format(d)
+          .replace(/\s/g, '')
+          .toUpperCase(); // AM/PM uppercase
+
+      function tick() {
+        const now = new Date();
+        els.sea.textContent = fmt(zones.sea, now);
+        els.mia.textContent = fmt(zones.mia, now);
+        els.bog.textContent = fmt(zones.bog, now);
+      }
+
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
 </body>
-<script>
-  (function startClocks() {
-    const els = {
-      sea: document.getElementById('clock-sea'),
-      mia: document.getElementById('clock-mia'),
-      bog: document.getElementById('clock-bog')
-    };
-    const zones = {
-      sea: 'America/Los_Angeles',
-      mia: 'America/New_York',
-      bog: 'America/Bogota'
-    };
-
-    const fmt = (tz, d) =>
-      new Intl.DateTimeFormat('en-US', {
-        hour: 'numeric',
-        minute: '2-digit',
-        second: '2-digit',   // ← add seconds
-        hour12: true,
-        timeZone: tz
-      })
-      .format(d)
-      .replace(/\s/g, '')    // remove space before AM/PM
-      .toUpperCase();        // am/pm → uppercase
-
-    function tick() {
-      const now = new Date();
-      els.sea.textContent = fmt(zones.sea, now);
-      els.mia.textContent = fmt(zones.mia, now);
-      els.bog.textContent = fmt(zones.bog, now);
-    }
-
-    tick();
-    setInterval(tick, 1000); // update every second
-  })();
-</script>
-
 </html>
