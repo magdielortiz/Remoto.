@@ -37,14 +37,33 @@
      align-items: baseline;
    }
    
+/* =========================================
+   Animated Logo — Desktop Only
+   ========================================= */
    .logo {
-     font-family: 'Signifier-Regular', serif;
-     font-size: 2rem;
-     font-weight: 400;
-     letter-spacing: -1px;
-     text-decoration: none;
-     color: #000;
-   }
+    position: relative;
+    display: inline-flex;
+    align-items: baseline;
+    font-family: 'Signifier-Regular', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: -1px;
+    color: #000;
+    text-decoration: none;
+    overflow: hidden;
+  }
+  
+  /* hide “We Are” by default */
+  .logo .weare {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    opacity: 0;
+    transition:
+      width 0.6s cubic-bezier(.22,.61,.36,1),
+      opacity 0.4s ease;
+  }
    
    .menu { display: flex; gap: 2rem; }
    .menu a {
@@ -146,6 +165,8 @@
    }
    
    .description { margin: 0; max-width: 50ch; }
+
+   .second-description { max-width: 50ch; }
    
    .meta dl {
      margin: 0;
@@ -336,7 +357,7 @@
   h1 {
     font-size: 1.25rem;
     line-height: 1.75rem;
-    width: 90%;
+    width: 88%;
     margin-top: 75px;
     margin-bottom: 150px;
   }
@@ -359,4 +380,11 @@
   .partner-title, .partner-location { font-size: 0.85rem; }
   .about-description { padding-bottom: 30px; font-size: 1.25rem; line-height: 1.75rem; max-width: 90%; }
   .partner-bio { padding-bottom: 30px; }
+}
+
+@media (hover: hover) and (min-width: 1081px) {
+  .logo:hover .weare {
+    width: 5.3ch;           /* enough width for “We Are ” */
+    opacity: 1;
+  }
 }
