@@ -120,7 +120,6 @@
    
    .project img {
      width: 100%;
-     height: 90vh;                 /* immersive desktop height */
      object-fit: cover;
      display: block;
      background-color: #ccc;
@@ -187,7 +186,6 @@
    .gallery-item {
      position: relative;
      width: 100%;
-     height: 90vh;
      overflow: hidden;
      margin: 0;
    }
@@ -327,14 +325,13 @@
     margin-bottom: 75px;
   }
   .project { margin: 0; height: auto; }
-  .project img { height: 30vh; }
   .caption { font-size: 1rem; margin-top: 8px; }
 
   /* PROJECT PAGE: gallery becomes two columns, text stacks */
   .project-hero { grid-template-columns: 1fr; gap: 1rem; padding-top: 18px; }
   .project-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
   .gallery-item { height: auto; }
-  .gallery-item img { height: 35vh; object-fit: cover; }
+  .gallery-item img { object-fit: cover; }
 
   /* ABOUT: two columns for partners & clients lists */
   .partners-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
@@ -369,7 +366,6 @@
   /* PROJECT PAGE: stack hero, single-column gallery */
   .project-hero { display: block; padding-top: 75px; }
   .project-gallery { grid-template-columns: 1fr; gap: 14px; }
-  .gallery-item img { height: 25vh; }
   .meta dl { padding-top: 20px; }
 
   /* ABOUT: single column */
