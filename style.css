@@ -294,6 +294,8 @@
      gap: 0.5rem 2rem;
    }
    .client-list li { break-inside: avoid; line-height: 1.5; }
+
+   .contact { margin-top: 50px; }
    
    /* =====================================================
       RESPONSIVE DESIGN
