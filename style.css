@@ -368,7 +368,7 @@
 
   /* PROJECT PAGE: stack hero, single-column gallery */
   .project-hero { display: block; padding-top: 75px; }
-  .project-gallery { grid-template-columns: 1fr; gap: 16px; }
+  .project-gallery { grid-template-columns: 1fr; gap: 14px; }
   .gallery-item img { height: 25vh; }
   .meta dl { padding-top: 20px; }
 
