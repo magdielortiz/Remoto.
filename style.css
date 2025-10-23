@@ -222,7 +222,7 @@
 .clock.center { text-align: center; }
 .clock.right  { text-align: right; }
 
-.clock .city { margin-right: 5px; }
+.clock .city { margin-right: 0px; }
 .clock .time { font-variant-numeric: tabular-nums; }
    
    /* =====================================================
