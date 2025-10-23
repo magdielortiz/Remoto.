@@ -206,9 +206,10 @@
 }
 
 .clocks {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
   align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .clock {
