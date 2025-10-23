@@ -1,12 +1,8 @@
-/* =====================================================
-   BASE RESET & TYPOGRAPHY
-   ===================================================== */
-   *,
    *::before,
    *::after { box-sizing: border-box; }
    
    html, body {
-     margin: 0 20px;                 /* global gutters */
+     margin: 0 20px;
      padding: 0;
      font-family: 'Gordita-Regular', serif;
      font-size: 0.90rem;
@@ -17,7 +13,7 @@
      -ms-overflow-style: none;
      scrollbar-width: none;
    }
-   /* For Chrome, Safari, Opera */
+
    body::-webkit-scrollbar { display: none; }
    
    /* =====================================================
@@ -37,9 +33,6 @@
      align-items: baseline;
    }
    
-/* =========================================
-   Animated Logo — Desktop Only
-   ========================================= */
    .logo {
     position: relative;
     display: inline-flex;
@@ -93,8 +86,8 @@
    
    main.homepage {
      display: grid;
-     grid-template-columns: 1fr;   /* desktop = single column */
-     margin: 0;                    /* gutters come from body */
+     grid-template-columns: 1fr;
+     margin: 0;
      scroll-snap-type: y mandatory;
      overscroll-behavior-y: none;
    }
@@ -103,7 +96,7 @@
    .project {
      position: relative;
      display: flex;
-     flex-direction: column;       /* stack image + caption */
+     flex-direction: column;
      width: 100%;
      height: auto;
      margin-bottom: 20px;
@@ -138,7 +131,7 @@
      color: rgba(0,0,0,.9);
      letter-spacing: 0.25px;
      text-align: left;
-     pointer-events: none;         /* not clickable */
+     pointer-events: none;
      opacity: 0.75;
    }
    .caption span { display: inline-block; }
@@ -146,11 +139,11 @@
    /* =====================================================
       PROJECT PAGE
       ===================================================== */
-   main.project-page { margin: 0; } /* gutters from body */
+   main.project-page { margin: 0; }
    
    .project-hero {
      display: grid;
-     grid-template-columns: 1.2fr 1fr;  /* desktop: two columns */
+     grid-template-columns: 1.2fr 1fr;
      align-items: start;
      gap: 2rem;
      padding: 50px 0 25px 0;
@@ -204,12 +197,12 @@
 
       /* ===== Sticky footer clocks ===== */
 .site-footer {
-  position: sticky;      /* sticks to bottom once reached */
+  position: sticky;
   bottom: 0px;
   background: #EEEEEE;
   border-top: 1px solid #000;
   padding: 20px 0;
-  z-index: 9;            /* below header (z=10), above content */
+  z-index: 9;
 }
 
 .clocks {
@@ -220,7 +213,7 @@
 
 .clock {
   font-family: 'Gordita-Regular', serif;
-  font-size: .90rem;       /* as requested */
+  font-size: .90rem;
   line-height: 1;
   color: #000;
 }
@@ -310,7 +303,7 @@
    - Make images two columns (homepage projects + project gallery)
    ----------------------------------------------------- */
 @media (max-width: 1080px) {
-  html, body { margin: 0 20px; }      /* same tablet gutters */
+  html, body { margin: 0 20px; }
   header { padding: 25px 0; }
   .logo { font-size: 2rem; letter-spacing: -1px; }
   .menu { gap: 1.5rem; }
@@ -318,12 +311,12 @@
   /* HOMEPAGE: two-column images only */
   #content {
     display: grid;
-    grid-template-columns: repeat(1, minmax(0, 1fr)); /* ← two columns on tablet */
+    grid-template-columns: repeat(1, minmax(0, 1fr));
     column-gap: 20px;
     row-gap: 40px;
   }
   #content > h1 {
-    grid-column: 1 / -1;              /* heading spans both columns */
+    grid-column: 1 / -1;
     margin-bottom: 75px;
   }
   .project { margin: 0; height: auto; }
@@ -345,7 +338,7 @@
    - Back to one column everywhere
    ----------------------------------------------------- */
 @media (max-width: 455px) {
-  html, body { margin: 0 10px; }      /* mobile gutters */
+  html, body { margin: 0 10px; }
   header { padding: 30px 0; }
   .logo { font-size: 2rem; letter-spacing: -1px; }
   .menu { gap: 1rem; }
@@ -382,7 +375,7 @@
 
 @media (hover: hover) and (min-width: 1081px) {
   .logo:hover .weare {
-    width: 5.3ch;           /* enough width for “We Are ” */
+    width: 5.3ch;
     opacity: 1;
   }
 }
