@@ -9,14 +9,12 @@
 
   <title>About — We Are Remoto.</title>
 
-  <!-- Fonts first, then site styles -->
   <link rel="stylesheet" href="fonts.css" />
   <link rel="stylesheet" href="style.css" />
 
   <link rel="icon" href="Images/Favicon.png" type="image/png" sizes="16x16" />
 </head>
 <body>
-  <!-- Navigation -->
   <header>
     <nav class="nav" aria-label="Primary">
       <a href="index.html" class="logo">
@@ -30,25 +28,23 @@
   </header>
 
   <main id="content" class="about-page" tabindex="-1">
-    <!-- Practice -->
+
     <section class="about-section practice" aria-labelledby="practice-title">
       <p class="about-description">
         Our mission is to provide our clients with exceptional quality design solutions that are both strategic and visually compelling.
       </p>
     </section>
 
-    <!-- Partners -->
     <section class="about-section partners" aria-labelledby="partners-title">
       <h2 id="partners-title" class="about-subtitle">Partners</h2>
 
       <div class="partners-grid">
-        <!-- Partner 1 -->
         <article class="partner-card">
           <figure class="partner-media">
             <img src="Images/Profile-Jose.jpg" alt="Portrait of Jose A. Rodríguez Duchesne" loading="lazy" />
           </figure>
           <div class="partner-header">
-            <h3 class="partner-name">Jose A. Rodríguez Dushesne</h3>
+            <h3 class="partner-name">Jose A. Rodríguez Duchesne</h3>
             <p class="partner-title">Managing Partner &amp; Executive Director</p>
             <p class="partner-location">Seattle, Washington</p>
           </div>
@@ -57,7 +53,6 @@
           </p>
         </article>
 
-        <!-- Partner 2 -->
         <article class="partner-card">
           <figure class="partner-media">
             <img src="Images/Profile-Luis.jpg" alt="Portrait of Luis A. Díaz-Alejandro" loading="lazy" />
@@ -72,7 +67,6 @@
           </p>
         </article>
 
-        <!-- Partner 3 -->
         <article class="partner-card">
           <figure class="partner-media">
             <img src="Images/Profile-Magdi.jpg" alt="Portrait of Magdiel Ortiz" loading="lazy" />
@@ -97,7 +91,6 @@
     </p>
   </main>
 
-  <!-- Sticky footer clocks (same as homepage) -->
   <footer class="site-footer" aria-label="City clocks">
     <div class="clocks">
       <div class="clock left">
@@ -105,12 +98,12 @@
         <span class="time" id="clock-sea" aria-live="polite">--:--:--</span>
       </div>
       <div class="clock center">
-        <span class="city">Miami:</span>
-        <span class="time" id="clock-mia" aria-live="polite">--:--:--</span>
-      </div>
-      <div class="clock right">
         <span class="city">Bogotá:</span>
         <span class="time" id="clock-bog" aria-live="polite">--:--:--</span>
+      </div>
+      <div class="clock right">
+        <span class="city">Miami:</span>
+        <span class="time" id="clock-mia" aria-live="polite">--:--:--</span>
       </div>
     </div>
   </footer>
